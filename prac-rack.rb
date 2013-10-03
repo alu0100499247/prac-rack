@@ -12,6 +12,7 @@ app = lambda do |env|
   	if req.path_info == '/mitweet'
     
     	nombre = req['name']
+	
     	usuario = Twitter.user(nombre)
     
     	res.write <<-"EOS"
@@ -20,6 +21,7 @@ app = lambda do |env|
 	  		<p>Introduce tu username: @<input type="text" name="name"><br></p>
 	  		
 	  	</form>
+		
 	  	<p>Nombre de usuario      	: #{nombre} </p>
       		<p>Nombre real          : #{usuario.name} </p>
       		<p>Seguidores     		: #{usuario.followers_count} </p>
