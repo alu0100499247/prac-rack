@@ -16,27 +16,28 @@ app = lambda do |env|
     	usuario = Twitter.user(nombre)
     
     	res.write <<-"EOS"
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
       	<body>
+		<img src="http://amesb.es/blog/wp-content/uploads/Qu%C3%A9-hacer-para-que-te-sigan-en-twitter1.png" align="right" width="200" height="200" />
 	  	<form> 
-	  		<p>Introduce tu username: @<input type="text" name="name"><br></p>
+	  		<p><h1>Introduce tu username: @<input type="text" name="name"></h1><br></p>
 	  		
-	  	</form>
-		
-	  	<p>Nombre de usuario      	: #{nombre} </p>
-      		<p>Nombre real          : #{usuario.name} </p>
-      		<p>Seguidores     		: #{usuario.followers_count} </p>
-      		<p>Amigos               : #{usuario.friends_count} </p>
-      		<p>Localizacion         : #{usuario.location} </p>
-      		<p>URL                  : #{usuario.url} </p>
+	  	</form>	
+	  	<p><h3>Username</h3>      	: #{nombre} </p>
+      		<p><h3>Nombre</h3>          : #{usuario.name} </p>
+      		<p><h3>Seguidores</h3>     		: #{usuario.followers_count} </p>
+      		<p><h3>Siguiendo a</h3>               : #{usuario.friends_count} </p>
+      		<p><h3>Localizacion</h3>         : #{usuario.location} </p>
+      		<p><h3>URL</h3>                  : #{usuario.url} </p>
     	EOS
 
     	tweet = Twitter.user_timeline(nombre).first
 
     	if tweet
 		res.write <<-"EOS"
-			<p>Ultimo tweet           	  : #{tweet.text } </p>
-			<p>Hora del tweet         	  : #{tweet.created_at} </p>
-			<p>ID Tweet               	  : #{tweet.id} </p>
+			<p><h3>Ultimo tweet</h3>           	  : #{tweet.text } </p>
+			<p><h3>Hora del tweet</h3>         	  : #{tweet.created_at} </p>
+			<p><h3>ID Tweet</h3>               	  : #{tweet.id} </p>
     	</body>
 		EOS
     	end
@@ -51,14 +52,6 @@ end
 
 
 Rack::Handler::Thin.run app, :Port => 8000
-#<a href="localhost:9999/twittero?name=cristhianj90"> Aqui </a>
-#<p> Pagina no accesible, visite <a href= 'localhost:9999/twittero'><input type="submit" value="Submit"></a></p>
-
-
-
-
-
-
 
 
 
