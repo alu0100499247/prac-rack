@@ -1,11 +1,3 @@
-Nombre: 
-Alu: 3930
-Asignatura: Sistemas y Tecnologías Web
-Profesor: Casiano Rodríguez
-Fecha de Entrega: Viernes 4 de Octubre de 2013
-
-
-
 #Cristhian Javier García Conrado
 alu3930
 ===================
